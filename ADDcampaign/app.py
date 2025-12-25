@@ -1,10 +1,10 @@
 ﻿import streamlit as st
 import joblib
 import pandas as pd
-
+import os
 # Load model
-model = joblib.load("ADDcampaign/campaign_model.pkl")
-
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "campaign_model.pkl")
+model = joblib.load(MODEL_PATH)
 
 st.title(" Product Ad Campaign Order Predictor")
 
@@ -43,5 +43,6 @@ if st.button("Predict Orders"):
 
     prediction = model.predict(input_df)[0]
     st.success(f"📦 Predicted Orders: {int(prediction)}")
+
 
 
