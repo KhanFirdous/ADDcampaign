@@ -3,7 +3,8 @@ import joblib
 import pandas as pd
 
 # Load model
-model = joblib.load("campaign_model.pkl")
+model = joblib.load("ADDcampaign/campaign_model.pkl")
+
 
 st.title(" Product Ad Campaign Order Predictor")
 
@@ -42,4 +43,5 @@ if st.button("Predict Orders"):
 
     prediction = model.predict(input_df)[0]
     st.success(f"📦 Predicted Orders: {int(prediction)}")
+
 
